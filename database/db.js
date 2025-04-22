@@ -3,7 +3,7 @@ const conexion = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'crudnode'
+  database: 'cursos1'  // Cambiado a la base de datos correcta
 });
 
 conexion.connect((error) => {

@@ -1,10 +1,9 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Editar Curso</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
 </head>
 <body>
   <header>
@@ -12,47 +11,51 @@
   </header>
 
   <main>
-
     <section class="container mt-3">
       <form action="/update" method="post" id="formulario-registro" autocomplete="off">
-
-        <input type="hidden" name="id" id="id" value="<%= cursos1.id %>">
+        <input type="hidden" name="id" id="id" value="<%= cursos1.id %>" />
 
         <div class="card">
           <div class="card-header">
-            <a href="./" class="btn btn-sm btn-primary">Mostrar lista</a>
+            <a href="/" class="btn btn-sm btn-primary">Mostrar lista</a>
           </div>
           <div class="card-body">
             <div class="mb-3 form-floating">
-              <input type="text" class="form-control" id="tipo" name="tipo" value="<%= cursos1.tipo %>" autofocus required>
-              <label for=" form-label">Tipo</label>
+              <input type="number" class="form-control" id="idcategoria" name="idcategoria" value="<%= cursos1.idcategoria %>" required />
+              <label for="idcategoria" class="form-label">Categoria</label>
             </div>
             <div class="mb-3 form-floating">
-              <select name="marca" id="marca" class="form-select">
-                <option value="">Seleccione</option>
-                <option value="Kia" <%= cursos1.marca == 'Kia' ? 'selected':'' %> >Kia</option>
-                <option value="Toyota"<%= cursos1.marca == 'Toyota' ? 'selected':'' %> >Toyota</option>
-                <option value="Nissan"<%= vehiculo.marca == 'Nissan' ? 'selected':'' %> >Nissan</option>
-                <option value="Hyundai"<%= vehiculo.marca == 'Hyundai' ? 'selected':'' %> >Hyundai</option>
-                <option value="Javal"<%= vehiculo.marca == 'Javal' ? 'selected':'' %> >Javal</option>
+              <input type="text" class="form-control" id="titulo" name="titulo" value="<%= cursos1.titulo %>" required />
+              <label for="titulo" class="form-label">Titulo</label>
+            </div>
+            <div class="mb-3 form-floating">
+              <input type="text" class="form-control" id="duracion" name="duracion" value="<%= cursos1.duracion %>" required />
+              <label for="duracion" class="form-label">Duracion</label>
+            </div>
+            <div class="mb-3 form-floating">
+              <select name="nivel" id="nivel" class="form-select" required>
+                <option value="Básico" <%= cursos1.nivel === 'Básico' ? 'selected' : '' %>>Básico</option>
+                <option value="Intermedio" <%= cursos1.nivel === 'Intermedio' ? 'selected' : '' %>>Intermedio</option>
+                <option value="Avanzado" <%= cursos1.nivel === 'Avanzado' ? 'selected' : '' %>>Avanzado</option>
               </select>
-              <label for="form-label">Marca</label>
+              <label for="nivel" class="form-label">Nivel</label>
             </div>
             <div class="mb-3 form-floating">
-              <input type="text" class="form-control" id="color" name="color" value="<%= vehiculo.color %>">
-              <label for="form-label">Color</label>
+              <input type="number" step="0.01" class="form-control" id="precio" name="precio" value="<%= cursos1.precio %>" required />
+              <label for="precio" class="form-label">Precio</label>
+            </div>
+            <div class="mb-3 form-floating">
+              <input type="text" class="form-control" id="fechas" name="fechas" value="<%= cursos1.fechas %>" required />
+              <label for="fechas" class="form-label">Fecha</label>
             </div>
           </div>
           <div class="card-footer text-end">
             <button class="btn btn-sm btn-primary" type="submit">Actualizar</button>
             <a href="/" class="btn btn-sm btn-secondary">Cancelar</a>
           </div>
-        </div> <!-- ./card -->
+        </div>
       </form>
     </section>
   </main>
-
-  
-  </script>
 </body>
 </html>

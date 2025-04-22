@@ -1,43 +1,35 @@
 const conexion = require('../database/db');
 
 exports.save = (req, res) => {
-  //Acceder a los datos enviados (vista)
-  const tipo = req.body.tipo;
-  const marca = req.body.marca;
-  const color = req.body.color;
+  // Acceder a los datos enviados desde el formulario
+  const { idcategoria, titulo, duracion, nivel, precio, fechas } = req.body;
 
-  //NOTA: Se debe especificar cómo capturar los datos de los <form></form> app.js
-  //Evidencia de captura de datos
-  //console.log(tipo, marca, color);
-
-  conexion.query('INSERT INTO vehiculos SET ?', 
-    { tipo: tipo, marca: marca, color: color }, (error, results) => {
-      if (error){
+  conexion.query(
+    'INSERT INTO cursos1 SET ?',
+    { idcategoria, titulo, duracion, nivel, precio, fechas },
+    (error, results) => {
+      if (error) {
         console.log(error);
-      }else{
-        //Redireccionar
-        //console.log("Grabado correctamente");
+      } else {
         res.redirect('/');
       }
-    });
+    }
+  );
 };
 
 exports.update = (req, res) => {
-  //Acceder a los datos enviados (vista)
-  const id = req.body.id;
-  const tipo = req.body.tipo;
-  const marca = req.body.marca;
-  const color = req.body.color;
+  // Acceder a los datos enviados desde el formulario
+  const { id, idcategoria, titulo, duracion, nivel, precio, fechas } = req.body;
 
-  //{tipo:tipo}
-  //campo_tabla: valor
-
-  conexion.query('UPDATE vehiculos SET ? WHERE id = ?', 
-    [{ tipo: tipo, marca: marca, color: color }, id], (error, results) => {
-      if (error){
+  conexion.query(
+    'UPDATE cursos1 SET ? WHERE id = ?',
+    [{ idcategoria, titulo, duracion, nivel, precio, fechas }, id],
+    (error, results) => {
+      if (error) {
         console.log(error);
-      }else{
+      } else {
         res.redirect('/');
       }
-    });
+    }
+  );
 };
